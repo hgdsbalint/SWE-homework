@@ -3,11 +3,14 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 
 import java.awt.*;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 public class GameController {
@@ -18,25 +21,28 @@ public class GameController {
 
     @FXML
     private TextField moveNumber;
-    private BooleanProperty gameOver = new SimpleBooleanProperty();
-    private IntegerProperty numberMove = new SimpleIntegerProperty();
-
-    private ImageView[] pieceViews;
     private ChessState state;
-    private void resetGame() {
-        state = new ChessState();
-        numberMove.set(0);
-        gameOver.set(state.isGoal());
+    @FXML
+    public void initialize() {
+        loadImages();
     }
+    public void loadImages(){
+    Image wBishopImage = new Image(getClass().getResourceAsStream("/images/w-bishop.png"));
+    Image bBishopImage = new Image(getClass().getResourceAsStream("images/bishop.png"));
+    Image wRookImage = new Image(getClass().getResourceAsStream("images/w-rook.png"));
+    Image bRookImage = new Image(getClass().getResourceAsStream("/images/rook.png"));
+    Image kingImage = new Image(getClass().getResourceAsStream("/images/king.png"));
 
+    ImageView wBishop = new ImageView(wBishopImage);
+    ImageView bBishop = new ImageView(bBishopImage);
+    ImageView wRook = new ImageView(wRookImage);
+    ImageView bRook = new ImageView(bRookImage);
+    ImageView kingView = new ImageView(kingImage);
 
-    private void loadImages() {
-        pieceViews = Stream.of("bishop.png", "game.png", "king.png", "rook.png","w-bishop.png")
-                .map(s -> "/images/" + s)
-                .map(s -> {
-                    var image = new Image(s);
-                    return new ImageView(image);
-                })
-                .toArray(ImageView[]::new);
+    board.add(kingView, 0, 0); // 0,0 helyen a király
+    board.add(wBishop, 0, 1); // 0,1 helyen a fehér futó
+    board.add(bBishop, 0, 2); // 0,2 helyen a fekete futó
+    board.add(wRook, 1, 0); // 1,0 helyen a fehér bástya
+    board.add(bRook, 1, 1); // 1,1 helyen a fekete bástya
     }
 }

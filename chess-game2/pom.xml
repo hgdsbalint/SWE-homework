@@ -12,6 +12,7 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <exec.mainClass>Main</exec.mainClass>
         <javafx.version>22.0.1</javafx.version>
     </properties>
     <dependencies>
@@ -27,18 +28,6 @@
         <version>${javafx.version}</version>
         <scope>compile</scope>
     </dependency>
-        <dependency>
-            <groupId>org.tinylog</groupId>
-            <artifactId>tinylog-api</artifactId>
-            <version>${tinylog.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.tinylog</groupId>
-            <artifactId>tinylog-impl</artifactId>
-            <version>${tinylog.version}</version>
-            <scope>runtime</scope>
-        </dependency>
     </dependencies>
     <build>
         <plugins>
