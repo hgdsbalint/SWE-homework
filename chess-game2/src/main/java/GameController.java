@@ -24,6 +24,7 @@ public class GameController {
     private ChessState state;
     @FXML
     public void initialize() {
+        state = new ChessState();
         loadImages();
     }
     public void loadImages(){
