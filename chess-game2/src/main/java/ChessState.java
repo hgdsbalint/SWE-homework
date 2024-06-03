@@ -6,7 +6,7 @@ public class ChessState {
     public static final int BISHOP1 = 2;
     public static final int ROCK = 3;
     public static final int ROCK1 = 4;
-    private Position positions[];
+    protected Position positions[];
 
     public ChessState() {
         positions = new Position[]{
