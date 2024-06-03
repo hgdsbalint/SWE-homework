@@ -1,2 +1,10 @@
-package PACKAGE_NAME;public enum Direction {
+public enum Direction {
+    Up,
+    Down,
+    Left,
+    Right,
+    DiagonalLeftUp,
+    DiagonalRightUp,
+    DiagonalLeftDown,
+    DiagonalRightDown
 }
